@@ -1,0 +1,24 @@
+@import './tokens.css';
+@import './base.css';
+@import './layout.css';
+@import './components.css';
+
+@import './navbar.css';
+@import './hero.css';
+@import './ticker.css';
+@import './about.css';
+@import './proyectos.css';
+@import './skills.css';
+@import './experiencia.css';
+@import './contacto.css';
+@import './footer.css';
+
+@import './utilities.css';
+
+/* Smooth scroll para anclas del navbar */
+@media (prefers-reduced-motion: no-preference){
+  html{
+    scroll-behavior: smooth;
+  }
+}
+

@@ -1,0 +1,36 @@
+/* ===== Layout ===== */
+
+.container{
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+}
+
+/* Secciones: padding responsive (sin cambiar tu intención de spacing) */
+.section{
+  padding: clamp(72px, 8vw, 92px) 0;
+} /* clamp() permite un valor fluido entre min y max [web:392] */
+
+/* Titles */
+.sectionTitle{
+  margin: 0 0 14px;
+  font-size: 22px;
+  letter-spacing: 0.3px;
+  color: var(--text);
+}
+
+.sectionSubtitle{
+  margin: 0 0 26px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* Grid helpers */
+.grid{
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 900px){
+  .grid-2{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-3{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}

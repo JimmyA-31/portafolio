@@ -1,0 +1,223 @@
+/* ===== Skills Section — IMPROVED ===== */
+
+#skills{
+  position: relative;
+  isolation: isolate;
+}
+
+/* Fondo más sutil y elegante */
+#skills::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+
+  background:
+    radial-gradient(700px 300px at 15% 15%, rgba(0,214,106,.08), transparent 65%),
+    radial-gradient(700px 300px at 85% 30%, rgba(93,255,176,.06), transparent 60%);
+}
+
+.skillsGrid{
+  align-items: start;
+  gap: 20px;
+}
+
+/* ===== Card ===== */
+#skills .skillCard{
+  position: relative;
+  padding: 18px 18px 38px;
+  border-radius: 18px;
+  overflow: hidden;
+
+  background:
+    linear-gradient(180deg, var(--surface-1), var(--surface-2));
+
+  border: 1px solid var(--stroke);
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+#skills .skillCard:hover{
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--stroke));
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.35),
+    0 0 0 1px rgba(0,214,106,.12);
+}
+
+/* ===== Header ===== */
+#skills .skillHead{
+  display:flex;
+  gap:14px;
+}
+
+#skills .skillIconWrap{
+  width:42px;
+  height:42px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+
+  background:
+    radial-gradient(circle at 30% 30%, rgba(0,214,106,.25), transparent 60%),
+    var(--surface-2);
+
+  border:1px solid color-mix(in srgb, var(--accent) 25%, var(--stroke));
+}
+
+#skills .skillIcon{
+  width:20px;
+  height:20px;
+  color: var(--accent);
+}
+
+/* Texto */
+#skills .skillGroup{
+  margin:0;
+  font-size:15px;
+  font-weight:600;
+  letter-spacing:.3px;
+}
+
+#skills .skillHint{
+  margin-top:4px;
+  font-size:13px;
+  line-height:1.5;
+  color:var(--muted);
+}
+
+/* ===== Chips ===== */
+#skills .skillChips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:14px;
+}
+
+#skills .skillChip{
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.3px;
+
+  background: var(--surface-2);
+  border:1px solid color-mix(in srgb, var(--accent) 18%, var(--stroke));
+  color:var(--text);
+
+  transition:
+    background .25s ease,
+    transform .25s ease,
+    border-color .25s ease;
+}
+
+#skills .skillChip:hover{
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--accent) 18%, var(--surface-2));
+  border-color: var(--accent);
+}
+
+/* ===== Barra inferior ===== */
+#skills .skillCard::after{
+  content:"";
+  position:absolute;
+  left:18px;
+  right:18px;
+  bottom:14px;
+
+  height:3px;
+  border-radius:999px;
+  background: color-mix(in srgb, var(--stroke) 70%, transparent);
+}
+
+/* Rayo animado solo al hover */
+@media (prefers-reduced-motion: no-preference){
+  #skills .skillCard::before{
+    content:"";
+    position:absolute;
+    left:18px;
+    right:18px;
+    bottom:14px;
+    height:3px;
+    border-radius:999px;
+
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--accent),
+      var(--accent2),
+      transparent
+    );
+
+    background-size:220% 100%;
+    opacity:0;
+    transition: opacity .3s ease;
+  }
+
+  #skills .skillCard:hover::before{
+    opacity:1;
+    animation: skillScan 2.4s linear infinite;
+  }
+
+  @keyframes skillScan{
+    from{ background-position: 220% 0; }
+    to{ background-position: -220% 0; }
+  }
+}
+
+.skillChip{
+  position:relative;
+}
+
+.skillChip::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.25),
+    transparent
+  );
+  opacity:0;
+  transition: opacity .25s ease;
+}
+
+.skillChip:hover::after{
+  opacity:1;
+}
+
+
+.skillCard{
+  --mx: 50%;
+  --my: 50%;
+}
+
+.skillCard::marker{ display:none; }
+
+.skillCard::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+
+  background:
+    radial-gradient(
+      220px at var(--mx) var(--my),
+      rgba(0,214,106,.18),
+      transparent 60%
+    );
+
+  opacity:0;
+  transition: opacity .25s ease;
+}
+
+.skillCard:hover::before{
+  opacity:1;
+}
+

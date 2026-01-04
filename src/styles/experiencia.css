@@ -1,0 +1,224 @@
+/* ===== Experience (ENHANCED) ===== */
+
+#experience{
+  position: relative;
+  isolation: isolate;
+}
+
+/* Fondo editorial suave */
+#experience::before{
+  content:"";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(
+      900px 380px at 14% 30%,
+      color-mix(in srgb, var(--accent) 10%, transparent),
+      transparent 62%
+    ),
+    radial-gradient(
+      900px 380px at 84% 40%,
+      color-mix(in srgb, var(--accent2) 8%, transparent),
+      transparent 60%
+    );
+}
+
+/* ===== Timeline ===== */
+.xpTimeline{
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  position: relative;
+}
+
+/* Línea vertical */
+.xpTimeline::before{
+  content:"";
+  position: absolute;
+  left: 14px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--stroke);
+  opacity: .8;
+}
+
+/* ===== Item ===== */
+.xpItem{
+  position: relative;
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 14px;
+  padding: 14px 0;
+}
+
+/* ===== Rail + Dot ===== */
+.xpRail{
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.xpDot{
+  margin-top: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow:
+    0 0 0 5px color-mix(in srgb, var(--accent) 16%, transparent);
+  transition: transform var(--t-fast) var(--ease-out),
+              box-shadow var(--t) var(--ease-out);
+}
+
+/* Roles prioritarios */
+.xpItem.isPrimary .xpDot{
+  box-shadow:
+    0 0 0 7px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+/* ===== Card ===== */
+.xpCard{
+  position: relative;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(180deg, var(--surface-1), var(--surface-2));
+  border-radius: 18px;
+  padding: 16px;
+  transition:
+    transform var(--t-fast) var(--ease-out),
+    border-color var(--t) var(--ease-out),
+    box-shadow var(--t) var(--ease-out);
+}
+
+/* Hover sobrio */
+.xpItem:hover .xpCard{
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 26%, var(--stroke));
+  box-shadow:
+    0 18px 50px color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+/* ===== Header ===== */
+.xpHead{
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.xpMain{
+  display: flex;
+  flex-direction: column;
+}
+
+.xpTitle{
+  margin: 0;
+  font-size: 15.5px;
+  font-weight: 650;
+  letter-spacing: .25px;
+  color: var(--text);
+}
+
+/* Empresa más editorial */
+.xpCompany{
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+  opacity: .85;
+}
+
+.xpPeriod.badge{
+  white-space: nowrap;
+  font-size: 12px;
+  opacity: .9;
+}
+
+/* ===== Bullets ===== */
+.xpBullets{
+  margin: 12px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.xpBullets li{
+  margin: 6px 0;
+}
+
+/* ===== Stack chips ===== */
+.xpStack{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.xpStack .badge{
+  background: var(--surface-2);
+  border-color: color-mix(in srgb, var(--accent) 18%, var(--stroke));
+  color: var(--text);
+  font-size: 12px;
+}
+
+/* ===== Animación de entrada ===== */
+@media (prefers-reduced-motion: no-preference){
+  .xpItem{
+    opacity: 0;
+    transform: translateY(16px);
+    animation: xpReveal .6s var(--ease-out) forwards;
+  }
+
+  .xpItem:nth-child(1){ animation-delay: .05s }
+  .xpItem:nth-child(2){ animation-delay: .12s }
+  .xpItem:nth-child(3){ animation-delay: .19s }
+
+  @keyframes xpReveal{
+    to{
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 920px){
+  .xpItem{
+    grid-template-columns: 28px 1fr;
+    gap: 12px;
+  }
+
+  .xpTimeline::before{
+    left: 12px;
+  }
+}
+
+/* ===== Timeline progress (scroll-driven) ===== */
+
+/* Línea activa */
+.xpTimeline::after{
+  content:"";
+  position: absolute;
+  left: 14px;
+  top: 0;
+  width: 2px;
+
+  height: calc(var(--xp-progress, 0) * 100%);
+  background: linear-gradient(
+    180deg,
+    var(--accent),
+    color-mix(in srgb, var(--accent2) 60%, var(--accent))
+  );
+
+  border-radius: 999px;
+  transition: height 0.1s linear;
+}
+
+/* Ajuste responsive */
+@media (max-width: 920px){
+  .xpTimeline::after{
+    left: 12px;
+  }
+}
+

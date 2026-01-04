@@ -1,0 +1,92 @@
+/* ===== Footer (PRO) ===== */
+.siteFooter{
+  position: relative;
+  padding: 32px 0 44px;
+  color: var(--muted);
+  background: transparent;
+}
+
+/* Separador superior premium */
+.siteFooter::before{
+  content:"";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--accent) 45%, transparent),
+    color-mix(in srgb, var(--accent2) 35%, transparent),
+    transparent
+  );
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* Contenido */
+.siteFooterInner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Copy */
+.siteFooterCopy{
+  margin: 0;
+  letter-spacing: .2px;
+}
+
+/* Meta */
+.siteFooterMeta{
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+/* Accent tech */
+.siteFooterAccent{
+  color: var(--text);
+  position: relative;
+  font-weight: 500;
+}
+
+/* Subrayado sutil (no animado) */
+.siteFooterAccent::after{
+  content:"";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: -6px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--accent) 70%, transparent),
+    transparent
+  );
+  opacity: .8;
+}
+
+/* Hover elegante (opcional, no invasivo) */
+.siteFooterAccent:hover{
+  color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 640px){
+  .siteFooterInner{
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+}

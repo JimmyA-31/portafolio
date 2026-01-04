@@ -1,0 +1,156 @@
+.heroPro {
+  position: relative;
+  padding-top: 24px;
+}
+
+/* ===== Grid ===== */
+.heroProGrid {
+  display: grid;
+  gap: 28px;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .heroProGrid {
+    grid-template-columns: 1.3fr 0.7fr;
+  }
+}
+
+/* ===== Icons ===== */
+.i16 { width: 16px; height: 16px; }
+.i18 { width: 18px; height: 18px; }
+
+/* ===== Kicker ===== */
+.heroProKicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.pillX {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+
+  border: 1px solid var(--stroke);
+  background: var(--surface-2);
+  color: var(--muted);
+}
+
+/* ===== Title ===== */
+.heroProTitle {
+  margin: 0 0 14px;
+  font-size: clamp(36px, 5vw, 52px);
+  line-height: 1.02;
+  letter-spacing: -0.9px;
+  color: var(--text);
+}
+
+.gradText {
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ===== Lead ===== */
+.heroProLead {
+  margin: 0;
+  max-width: 60ch;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* ===== Bullets ===== */
+.heroProList {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.heroProList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--text);
+}
+
+/* ===== CTAs ===== */
+.heroProCtas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+/* ===== Right Panel ===== */
+.heroProRight {
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(
+    180deg,
+    var(--surface-2),
+    var(--panel)
+  );
+}
+
+.heroProRightLabel {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Capabilities */
+.heroProStats {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.heroProStat {
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--stroke);
+  background: var(--panel2);
+}
+
+.heroProStatV {
+  font-size: 14px;
+  color: var(--text);
+}
+
+/* Note */
+.heroProNote {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--stroke));
+  background: color-mix(in srgb, var(--accent) 7%, var(--panel));
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* ===== Light mode refinements ===== */
+:root[data-theme="light"] .heroProRight {
+  background: linear-gradient(
+    180deg,
+    var(--panel),
+    var(--panel2)
+  );
+}
+
+:root[data-theme="light"] .pillX:hover,
+:root[data-theme="light"] .heroProStat:hover {
+  background: color-mix(in srgb, var(--text) 6%, var(--panel));
+  border-color: color-mix(in srgb, var(--text) 18%, var(--stroke));
+}

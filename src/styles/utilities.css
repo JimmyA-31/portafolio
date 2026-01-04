@@ -1,0 +1,28 @@
+/* ===== Utilities / tiny overrides ===== */
+
+/* Helpers: keep SVG icons consistent */
+svg{ shape-rendering: geometricPrecision; }
+
+/* If any section looks “cut”, you can apply this class: className="section sectionFade" */
+.sectionFade{
+  position: relative;
+}
+.sectionFade::before,
+.sectionFade::after{
+  content:"";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 42px;
+  pointer-events: none;
+}
+.sectionFade::before{
+  top: -1px;
+  background: linear-gradient(to bottom, transparent, rgba(6,8,9,1));
+  opacity: 0.9;
+}
+.sectionFade::after{
+  bottom: -1px;
+  background: linear-gradient(to top, transparent, rgba(6,8,9,1));
+  opacity: 0.9;
+}

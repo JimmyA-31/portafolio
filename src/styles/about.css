@@ -1,0 +1,199 @@
+/* ===== About Section ===== */
+.sectionSoft{
+  position: relative;
+  overflow: hidden;
+}
+
+/* Overlay suave */
+.sectionSoft::before{
+  content:"";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      700px 300px at 15% 0%,
+      color-mix(in srgb, var(--accent2) 12%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 380px at 90% 30%,
+      color-mix(in srgb, var(--accent) 10%, transparent),
+      transparent 65%
+    );
+}
+
+.sectionSoft > .container{
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Encabezado ===== */
+.sectionHead{
+  max-width: 780px;
+  margin-bottom: 24px;
+}
+
+/* ===== Pills ===== */
+.pillRow{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 14px;
+  border-radius: 999px;
+
+  border: 1px solid var(--stroke);
+  background: var(--surface-2);
+
+  font-size: 13px;
+  color: var(--muted);
+
+  transition:
+    background var(--t) var(--ease-out),
+    border-color var(--t) var(--ease-out),
+    color var(--t) var(--ease-out);
+}
+
+.pill:hover{
+  background: color-mix(in srgb, var(--accent2) 10%, var(--surface-2));
+  border-color: color-mix(in srgb, var(--accent2) 30%, var(--stroke));
+  color: var(--text);
+}
+
+.pillIcon{
+  width: 16px;
+  height: 16px;
+  color: var(--icon);
+}
+
+/* ===== Cards ===== */
+/* ===== Cursor Based Glow Card ===== */
+.aboutCard{
+  position: relative;
+  padding: 20px;
+  border-radius: 18px;
+
+  background: var(--surface-2);
+  border: 1px solid var(--stroke);
+
+  overflow: hidden;
+
+  transition:
+    border-color var(--t) var(--ease-out),
+    box-shadow var(--t) var(--ease-out);
+}
+
+/* Glow dinámico */
+.aboutCard::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+
+  background: radial-gradient(
+    420px circle at var(--x, 50%) var(--y, 50%),
+    color-mix(in srgb, var(--accent2) 22%, transparent),
+    transparent 60%
+  );
+
+  transition: opacity var(--t-fast) var(--ease-out);
+}
+
+.aboutCard:hover::before{
+  opacity: 1;
+}
+
+.aboutCard:hover{
+  border-color: color-mix(in srgb, var(--accent2) 35%, var(--stroke));
+  box-shadow:
+    0 14px 46px color-mix(in srgb, var(--accent2) 16%, transparent);
+}
+
+
+/* ===== Header interno ===== */
+.aboutCardHead{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* Icon container */
+.aboutCardIconWrap{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+
+  background: color-mix(in srgb, var(--accent2) 10%, var(--surface-2));
+  border: 1px solid color-mix(in srgb, var(--accent2) 22%, var(--stroke));
+
+  transition:
+    background var(--t) var(--ease-out),
+    border-color var(--t) var(--ease-out),
+    box-shadow var(--t) var(--ease-out);
+}
+
+.aboutCard:hover .aboutCardIconWrap{
+  background: color-mix(in srgb, var(--accent2) 18%, var(--surface-2));
+  border-color: color-mix(in srgb, var(--accent2) 38%, var(--stroke));
+  box-shadow:
+    0 6px 20px color-mix(in srgb, var(--accent2) 25%, transparent);
+}
+
+.aboutCardIcon{
+  width: 20px;
+  height: 20px;
+  color: var(--icon);
+}
+
+/* ===== Texto ===== */
+.aboutCardTitle{
+  margin: 0;
+  font-weight: 760;
+  letter-spacing: 0.3px;
+  color: var(--text);
+}
+
+.aboutCardSubtitle{
+  margin: 6px 0 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* ===== Lista ===== */
+.aboutList{
+  margin: 8px 0 0;
+  padding-left: 18px;
+  line-height: 1.85;
+  color: var(--muted);
+}
+
+.aboutList li{
+  margin: 6px 0;
+}
+
+/* ===== About específico ===== */
+#about .glowBorder{
+  background: var(--surface-2);
+  border: 1px solid var(--stroke);
+  box-shadow: none;
+}
+
+/* ===== Light mode ===== */
+:root[data-theme="light"] .aboutCard:hover{
+  box-shadow:
+    0 14px 44px rgba(0,0,0,.12);
+}
