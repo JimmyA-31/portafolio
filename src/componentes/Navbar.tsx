@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
-import { MoonIcon, SunIcon } from '@heroicons/react/24/outline'
-import { useTheme } from '../hooks/useTheme'
 import {
+  MoonIcon,
+  SunIcon,
+  Bars3Icon,
+  XMarkIcon,
   CommandLineIcon,
   CodeBracketIcon,
   Squares2X2Icon,
@@ -9,6 +11,7 @@ import {
   EnvelopeIcon,
   ArrowTopRightOnSquareIcon,
 } from '@heroicons/react/24/outline'
+import { useTheme } from '../hooks/useTheme'
 
 const links = [
   { id: 'about', label: 'Sobre mí', Icon: SparklesIcon },
@@ -19,10 +22,9 @@ const links = [
 ]
 
 export default function Navbar() {
-
   const [scrolled, setScrolled] = useState(false)
+  const [open, setOpen] = useState(false)
   const { theme, toggleTheme } = useTheme()
-
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -32,37 +34,86 @@ export default function Navbar() {
   }, [])
 
   return (
-    <header className={`navWrap ${scrolled ? 'navWrap--scrolled' : ''}`}>
-      <div className="navInner">
-        <a className="brand" href="#top" aria-label="Ir al inicio">
-          <span className="brandMark" />
-          <span className="brandText">Jimmy Alvarez</span>
-          <span className="brandTag">Full Stack</span>
-        </a>
-
-        <nav className="navLinks" aria-label="Navegación principal">
-          {links.map(({ id, label, Icon }) => (
-            <a key={id} className="navLinkX" href={`#${id}`}>
-              <Icon className="navIcon" />
-              <span>{label}</span>
-              <span className="navLinkGlow" />
-            </a>
-          ))}
-        </nav>
-
-        <div className="navActions">
-          <button className="navBtn navBtn--ghost" type="button" onClick={toggleTheme}>
-            {theme === 'dark' ? <SunIcon className="navIcon" /> : <MoonIcon className="navIcon" />}
-            {theme === 'dark' ? 'Claro' : 'Oscuro'}
-          </button>
-
-          <a className="navBtn" href="https://github.com/JimmyA-31" target="_blank" rel="noreferrer">
-            <ArrowTopRightOnSquareIcon className="navIcon" />
-            GitHub
+    <>
+      <header className={`navWrap ${scrolled ? 'navWrap--scrolled' : ''}`}>
+        <div className="navInner">
+          <a className="brand" href="#top">
+            <span className="brandMark" />
+            <span className="brandText">Jimmy Alvarez</span>
+            <span className="brandTag">Full Stack</span>
           </a>
-        </div>
 
-      </div>
-    </header>
+          {/* Desktop */}
+          <nav className="navLinks">
+            {links.map(({ id, label, Icon }) => (
+              <a key={id} className="navLinkX" href={`#${id}`}>
+                <Icon className="navIcon" />
+                {label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="navActions">
+            <button
+              type="button"
+              className="navBtn navBtn--ghost"
+              onClick={toggleTheme}
+              aria-label="Cambiar tema"
+            >
+              {theme === 'dark' ? (
+                <SunIcon className="navIcon" />
+              ) : (
+                <MoonIcon className="navIcon" />
+              )}
+            </button>
+
+            <a
+              className="navBtn"
+              href="https://github.com/JimmyA-31"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+            >
+              <ArrowTopRightOnSquareIcon className="navIcon" />
+            </a>
+
+            {/* Mobile toggle */}
+            <button
+              type="button"
+              className="navBtn navBtn--menu"
+              onClick={() => setOpen(v => !v)}
+              aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+            >
+              {open ? (
+                <XMarkIcon className="navIcon" />
+              ) : (
+                <Bars3Icon className="navIcon" />
+              )}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Overlay */}
+      <div
+        className={`mobileOverlay ${open ? 'open' : ''}`}
+        onClick={() => setOpen(false)}
+      />
+
+      {/* Sidebar */}
+      <aside className={`mobileMenu ${open ? 'open' : ''}`}>
+        {links.map(({ id, label, Icon }) => (
+          <a
+            key={id}
+            href={`#${id}`}
+            className="mobileLink"
+            onClick={() => setOpen(false)}
+          >
+            <Icon className="navIcon" />
+            {label}
+          </a>
+        ))}
+      </aside>
+    </>
   )
 }

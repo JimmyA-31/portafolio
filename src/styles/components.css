@@ -178,3 +178,11 @@
   border-color: color-mix(in srgb, var(--text) 18%, var(--stroke));
   background: color-mix(in srgb, var(--accent) 10%, transparent);
 }
+
+.btn svg,
+.contactLine svg{
+  width: 1em;
+  height: 1em;
+  flex: 0 0 1em;
+}
+
