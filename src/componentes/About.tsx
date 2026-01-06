@@ -23,28 +23,28 @@ type Pillar = {
 const pillars: Pillar[] = [
   {
     title: 'Lo que hago',
-    subtitle: 'Construcción end-to-end con foco en base sólida.',
+    subtitle: 'Desarrollo completo de aplicaciones, desde la interfaz hasta la base de datos.',
     Icon: Squares2X2Icon,
     items: [
       'Diseño de APIs REST claras y mantenibles.',
       'Optimización de SQL y modelado relacional.',
-      'Interfaces React con estado predecible y TypeScript.',
+      'Páginas web modernas , intranets y dashboards.',
     ],
   },
   {
     title: 'Cómo trabajo',
-    subtitle: 'Calidad sostenida antes que soluciones rápidas.',
+    subtitle: 'Priorizo soluciones mantenibles y bien estructuradas.',
     Icon: SparklesIcon,
     items: [
-      'Performance y buena experiencia de desarrollo.',
-      'Código legible, tipado y bien estructurado.',
-      'Entrega continua sin fricción.',
+      'Diseño y desarrollo de interfaces claras, responsive y usables.',
+      'Código limpio, tipado y organizado para facilitar mantenimiento.',
+      'Trabajo iterativo con entregas frecuentes y feedback continuo.',
     ],
   },
 ]
 
 const pills: Pill[] = [
-  { label: 'React + TypeScript', Icon: CpuChipIcon },
+  { label: 'React / Angular', Icon: CpuChipIcon },
   { label: 'SQL & Data', Icon: CircleStackIcon },
   { label: 'UI moderna', Icon: BoltIcon },
   { label: 'Buenas prácticas', Icon: ShieldCheckIcon },

@@ -19,19 +19,22 @@ type Skill = {
 const skills: readonly Skill[] = [
   {
     group: 'Frontend',
-    items: ['React', 'TypeScript', 'Vite', 'CSS moderno', 'Accesibilidad'],
+    items: ['React', 'Figma', 'Angular', 'Tailwind CSS', 'Accesibilidad'],
   },
   {
     group: 'Backend',
-    items: ['Node.js', 'APIs REST', 'Auth JWT', 'Arquitectura por capas'],
+    items: ['Node.js', 'APIs REST', 'JAVA','C#', 'Arquitectura por capas'],
   },
   {
     group: 'Datos',
-    items: ['SQL Server', 'PostgreSQL', 'Modelado relacional'],
+    items: ['SQL Server', 'MySql', 'Modelado relacional'],
   },
   {
     group: 'DevOps',
-    items: ['Docker básico', 'CI/CD básico', 'Logs & monitoreo'],
+    items: [
+    'Git & GitHub',
+    'Gestión de dominios y subdominios'
+  ],
   },
 ]
 
@@ -44,23 +47,23 @@ const meta: Record<
   }
 > = {
   Frontend: {
-    Icon: CodeBracketIcon,
-    hint: 'UI, componentes y calidad de interfaz.',
-    priority: 'high',
+  Icon: CodeBracketIcon,
+  hint: 'Interfaces modernas, componentes reutilizables y UX cuidada.',
+  priority: 'high',
   },
   Backend: {
     Icon: CommandLineIcon,
-    hint: 'Servicios, autenticación y estructura.',
+    hint: 'APIs REST, lógica de negocio y seguridad.',
     priority: 'high',
   },
   Datos: {
     Icon: CircleStackIcon,
-    hint: 'Modelado, performance y consultas.',
+    hint: 'Diseño relacional, consultas eficientes y persistencia.',
     priority: 'medium',
   },
   DevOps: {
     Icon: WrenchScrewdriverIcon,
-    hint: 'Deploy básico y observabilidad.',
+    hint: 'Deploy, hosting y puesta en producción.',
     priority: 'medium',
   },
 }

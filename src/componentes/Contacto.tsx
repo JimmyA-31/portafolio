@@ -45,7 +45,7 @@ function ContactInfo() {
       <div className="contactCtas contactCtas--inCard">
         <a
           className="btn btn--ghost"
-          href="https://www.linkedin.com/in/ejemplo"
+          href="https://www.linkedin.com/in/jimmy-alvarez-30315225b/"
           target="_blank"
           rel="noreferrer"
         >
@@ -55,7 +55,7 @@ function ContactInfo() {
 
         <a
           className="btn btn--ghost"
-          href="https://github.com/ejemplo"
+          href="https://github.com/JimmyA-31"
           target="_blank"
           rel="noreferrer"
         >
@@ -102,7 +102,6 @@ function ContactForm() {
           className="contactInput"
           name="name"
           autoComplete="name"
-          autoFocus
           required
         />
       </label>

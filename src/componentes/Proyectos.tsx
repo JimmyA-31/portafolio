@@ -12,26 +12,25 @@ type Project = {
 
 const projects: Project[] = [
   {
-    name: 'GreenDash Analytics',
-    desc: 'Dashboard de métricas con filtros, gráficos y exportación CSV (datos demo).',
-    stack: ['React', 'TypeScript', 'Vite', 'REST'],
+    name: 'Whizzet',
+    desc: 'Página web de agencia de marketing digital, branding y desarrollo web.',
+    stack: ['PHP', 'MySql', 'Javascript', 'Figma', 'Bootstrap'],
     year: 2025,
-    repo: 'https://github.com/ejemplo/greendash',
-    demo: 'https://greendash.ejemplo.dev',
+    demo: 'https://whizzet.com/',
   },
   {
-    name: 'ShopFlow API',
-    desc: 'API para pedidos con JWT, roles y documentación (mock).',
-    stack: ['Node', 'Express', 'PostgreSQL', 'JWT'],
+    name: 'G2 Solution',
+    desc: 'Pagína web de empresa de seguridad electrónica y mantenimiento.',
+    stack: ['PHP', 'MySql', 'Javascript', 'Figma', 'Bootstrap'],
     year: 2025,
-    repo: 'https://github.com/ejemplo/shopflow-api',
+    demo: 'https://g2solutionperu.com/',
   },
   {
-    name: 'Notes Vault',
-    desc: 'Notas con búsqueda, tags y modo offline (ejemplo).',
-    stack: ['React', 'IndexedDB', 'CSS'],
+    name: 'Optivisión Perú',
+    desc: 'Página web de empresa de servicios ópticos y venta de lentes de contacto. (Incluye CRM)',
+    stack: ['PHP', 'MySql', 'Javascript', 'Figma', 'Bootstrap'],
     year: 2025,
-    demo: 'https://notes.ejemplo.dev',
+    demo: 'https://optivisionperu.online/',
   },
 ]
 
@@ -48,7 +47,7 @@ export default function Proyectos() {
         <header className="sectionHead">
           <h2 className="sectionTitle">Proyectos</h2>
           <p className="sectionSubtitle">
-            Proyectos de ejemplo enfocados en arquitectura, UI y buenas prácticas.
+            Alugnos Proyectos que realizé enfocados en arquitectura, UI y buenas prácticas.
           </p>
         </header>
 

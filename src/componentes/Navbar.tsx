@@ -56,7 +56,7 @@ export default function Navbar() {
             {theme === 'dark' ? 'Claro' : 'Oscuro'}
           </button>
 
-          <a className="navBtn" href="https://github.com/ejemplo" target="_blank" rel="noreferrer">
+          <a className="navBtn" href="https://github.com/JimmyA-31" target="_blank" rel="noreferrer">
             <ArrowTopRightOnSquareIcon className="navIcon" />
             GitHub
           </a>

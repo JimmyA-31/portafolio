@@ -9,25 +9,27 @@ type Role = {
 
 const roles: Role[] = [
   {
-    company: 'NeonSoft Studio (ejemplo)',
-    title: 'Full-Stack Developer',
-    period: '2024 – 2025',
+    company: 'G2 Solution',
+    title: 'Practicante Desarrollador Web',
+    period: '2025',
     bullets: [
-      'Implementé endpoints REST y validaciones para módulos de ventas.',
-      'Optimicé consultas reduciendo tiempos de respuesta (caso demo).',
-      'Refactor de componentes React para reuso y mantenibilidad.',
+      'Desarrollé sitios web y sistemas tipo CRM para clínicas ópticas, empresas de seguridad y una academia de manejo.',
+      'Participé en el levantamiento de requerimientos y planificación bajo metodología SCRUM.',
+      'Maqueté interfaces en Figma y las implementé en frontend responsive.',
+      'Implementé funcionalidades backend y consumo de APIs para gestión de datos.',
     ],
   },
   {
-    company: 'DataCraft Labs (ejemplo)',
-    title: 'Backend Developer',
-    period: '2023 – 2024',
+    company: 'Proyectos académicos y personales',
+    title: 'Desarrollador Full Stack',
+    period: '2024 – 2025',
     bullets: [
-      'Diseño de procedimientos almacenados y transacciones.',
-      'Integración de autenticación y auditoría.',
-      'Soporte a despliegues y troubleshooting en producción.',
+      'Desarrollé aplicaciones web completas como parte de proyectos académicos y personales.',
+      'Implementé frontend con React y maquetación previa en Figma.',
+      'Desarrollé APIs REST y lógica backend para gestión de datos.',
+      'Versioné el código con Git y documenté funcionalidades.',
     ],
-  },
+  }
 ]
 
 export default function Experiencia() {
