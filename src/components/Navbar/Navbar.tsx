@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
+import './Navbar.css'
 import {
+
   MoonIcon,
   SunIcon,
   Bars3Icon,
@@ -11,7 +13,7 @@ import {
   EnvelopeIcon,
   ArrowTopRightOnSquareIcon,
 } from '@heroicons/react/24/outline'
-import { useTheme } from '../hooks/useTheme'
+import { useTheme } from '../../hooks/useTheme'
 
 const links = [
   { id: 'about', label: 'Sobre mí', Icon: SparklesIcon },

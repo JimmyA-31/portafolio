@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import {
+
   CpuChipIcon,
   CircleStackIcon,
   Squares2X2Icon,
@@ -7,6 +8,7 @@ import {
   BoltIcon,
   ShieldCheckIcon,
 } from '@heroicons/react/24/outline'
+import './About.css'
 
 type Pill = {
   label: string

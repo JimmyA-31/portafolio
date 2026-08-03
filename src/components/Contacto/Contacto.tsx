@@ -6,6 +6,7 @@ import {
   ArrowTopRightOnSquareIcon,
   PaperAirplaneIcon,
 } from '@heroicons/react/24/outline'
+import './Contacto.css'
 
 type ContactLineProps = {
   href?: string

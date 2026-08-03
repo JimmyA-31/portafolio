@@ -1,5 +1,7 @@
-import { useReveal } from '../hooks/useReveal'
-import TiltCard from './Tiltcard'
+import { useReveal } from '../../hooks/useReveal'
+import TiltCard from '../Tiltcard/Tiltcard'
+import './Proyectos.css'
+
 
 type Project = {
   name: string
@@ -26,11 +28,11 @@ const projects: Project[] = [
     demo: 'https://g2solutionperu.com/',
   },
   {
-    name: 'Optivisión Perú',
-    desc: 'Página web de empresa de servicios ópticos y venta de lentes de contacto. (Incluye CRM)',
-    stack: ['PHP', 'MySql', 'Javascript', 'Figma', 'Bootstrap'],
-    year: 2025,
-    demo: 'https://optivisionperu.online/',
+    name: 'ShopVue',
+    desc: 'Página web de E-commerce para venta de productos de tecnología, ropa y accesorios',
+    stack: [ 'Vue.js', 'CSS', 'Figma', 'Typescript','Vercel'],
+    year: 2026,
+    demo: 'https://e-commerce-vue-lime.vercel.app/',
   },
 ]
 

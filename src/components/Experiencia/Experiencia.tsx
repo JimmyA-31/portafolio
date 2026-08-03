@@ -1,4 +1,6 @@
 import { useEffect, useRef } from 'react'
+import './Experiencia.css'
+
 
 type Role = {
   company: string

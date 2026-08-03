@@ -1,4 +1,6 @@
+import './Hero.css'
 import {
+
   ArrowDownCircleIcon,
   EnvelopeIcon,
   MapPinIcon,

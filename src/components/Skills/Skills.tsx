@@ -1,9 +1,11 @@
 import {
+
   CodeBracketIcon,
   CircleStackIcon,
   CommandLineIcon,
   WrenchScrewdriverIcon,
 } from '@heroicons/react/24/outline'
+import './Skills.css'
 
 type SkillGroup =
   | 'Frontend'

@@ -1,11 +1,13 @@
 import { useEffect, useMemo, useRef, type ComponentType } from 'react'
 import {
+
   SiPhp,
   SiMysql,
   SiReact,
   SiGit,
   SiGithub,
 } from '@icons-pack/react-simple-icons'
+import './ticker.css'
 
 type Tech = {
   id: string

@@ -1,12 +1,12 @@
-import Navbar from './componentes/Navbar'
-import Hero from './componentes/Hero'
-import TechTicker from './componentes/Tech'
-import About from './componentes/About'
-import Proyectos from './componentes/Proyectos'
-import Skills from './componentes/Skills'
-import Experience from './componentes/Experiencia'
-import Contacto from './componentes/Contacto'
-import Footer from './componentes/Footer'
+import Navbar from './components/Navbar/Navbar'
+import Hero from './components/Hero/Hero'
+import TechTicker from './components/Tech/Tech'
+import About from './components/About/About'
+import Proyectos from './components/Proyectos/Proyectos'
+import Skills from './components/Skills/Skills'
+import Experience from './components/Experiencia/Experiencia'
+import Contacto from './components/Contacto/Contacto'
+import Footer from './components/Footer/Footer'
 
 
 function App() {
