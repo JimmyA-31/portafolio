@@ -1,7 +1,6 @@
-import { useReveal } from '../../hooks/useReveal'
-import TiltCard from '../Tiltcard/Tiltcard'
+import { useState } from 'react'
+import { FileCode, ArrowSquareOut, FolderOpen } from '@phosphor-icons/react'
 import './Proyectos.css'
-
 
 type Project = {
   name: string
@@ -22,84 +21,94 @@ const projects: Project[] = [
   },
   {
     name: 'G2 Solution',
-    desc: 'Pagína web de empresa de seguridad electrónica y mantenimiento.',
+    desc: 'Página web de empresa de seguridad electrónica y mantenimiento.',
     stack: ['PHP', 'MySql', 'Javascript', 'Figma', 'Bootstrap'],
     year: 2025,
     demo: 'https://g2solutionperu.com/',
   },
   {
     name: 'ShopVue',
-    desc: 'Página web de E-commerce para venta de productos de tecnología, ropa y accesorios',
-    stack: [ 'Vue.js', 'CSS', 'Figma', 'Typescript','Vercel'],
+    desc: 'Página web de E-commerce para venta de productos de tecnología, ropa y accesorios.',
+    stack: ['Vue.js', 'CSS', 'Figma', 'Typescript', 'Vercel'],
     year: 2026,
     demo: 'https://e-commerce-vue-lime.vercel.app/',
   },
 ]
 
+function fileName(name: string) {
+  return `${name.toLowerCase().replace(/\s+/g, '-')}.proj`
+}
+
 export default function Proyectos() {
-  const { ref, shown } = useReveal<HTMLElement>()
+  const [selected, setSelected] = useState(0)
+  const project = projects[selected]
 
   return (
-    <section
-      ref={ref}
-      id="projects"
-      className={`section reveal ${shown ? 'isShown' : ''}`}
-    >
-      <div className="container">
-        <header className="sectionHead">
-          <h2 className="sectionTitle">Proyectos</h2>
-          <p className="sectionSubtitle">
-            Alugnos Proyectos que realizé enfocados en arquitectura, UI y buenas prácticas.
-          </p>
-        </header>
+    <section id="projects" className="explorer">
+      <div className="explorer-breadcrumb">
+        <FolderOpen size={14} color="var(--os-accent)" />
+        <span>Proyectos</span>
+        <span className="explorer-breadcrumb-sep">/</span>
+        <span className="explorer-breadcrumb-count">{projects.length} archivos</span>
+      </div>
 
-        <div className="grid grid-3">
-          {projects.map(project => (
-            <TiltCard
-              key={project.name}
-              className="card glow projectCard"
-            >
-              <article>
-                <header className="projectHead">
-                  <h3 className="projectTitle">{project.name}</h3>
-                  <span className="badge">{project.year}</span>
-                </header>
-
-                <p className="projectDesc">{project.desc}</p>
-
-                <ul className="projectStack">
-                  {project.stack.map(tech => (
-                    <li key={tech} className="badge">
-                      {tech}
-                    </li>
-                  ))}
-                </ul>
-
-                <footer className="projectActions">
-                  {project.repo && (
-                    <a
-                      className="btn btnGhost"
-                      href={project.repo}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Repo
-                    </a>
-                  )}
-                  {project.demo && (
-                    <a
-                      className="btn"
-                      href={project.demo}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Demo
-                    </a>
-                  )}
-                </footer>
-              </article>
-            </TiltCard>
+      <div className="explorer-body">
+        <ul className="explorer-list">
+          {projects.map((p, i) => (
+            <li key={p.name}>
+              <button
+                type="button"
+                className={`explorer-row ${i === selected ? 'isActive' : ''}`}
+                onClick={() => setSelected(i)}
+              >
+                <FileCode
+                  size={18}
+                  weight="regular"
+                  color={i === selected ? 'var(--os-glow)' : 'var(--os-accent)'}
+                />
+                <span className="explorer-row-info">
+                  <span className="explorer-row-name">{fileName(p.name)}</span>
+                  <span className="explorer-row-meta">{p.year} · {p.stack.length} tecnologías</span>
+                </span>
+              </button>
+            </li>
           ))}
+        </ul>
+
+        <div className="explorer-preview">
+          <header className="explorer-preview-head">
+            <FileCode size={26} weight="duotone" color="var(--os-glow)" />
+            <div>
+              <p className="explorer-preview-title">{project.name}</p>
+              <p className="explorer-preview-file">{fileName(project.name)} — {project.year}</p>
+            </div>
+          </header>
+
+          <p className="explorer-preview-desc">{project.desc}</p>
+
+          <div className="explorer-preview-block">
+            <p className="explorer-preview-label">stack.json</p>
+            <ul className="explorer-preview-stack">
+              {project.stack.map((tech) => (
+                <li key={tech} className="badge">{tech}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="explorer-preview-actions">
+            {project.repo && (
+              <a className="btn btn--ghost" href={project.repo} target="_blank" rel="noreferrer">
+                <ArrowSquareOut size={14} />
+                Repositorio
+              </a>
+            )}
+            {project.demo && (
+              <a className="btn" href={project.demo} target="_blank" rel="noreferrer">
+                <ArrowSquareOut size={14} />
+                Ver demo
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </section>

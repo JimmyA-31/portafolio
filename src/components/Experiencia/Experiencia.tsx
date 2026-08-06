@@ -1,6 +1,4 @@
-import { useEffect, useRef } from 'react'
 import './Experiencia.css'
-
 
 type Role = {
   company: string
@@ -10,6 +8,17 @@ type Role = {
 }
 
 const roles: Role[] = [
+  {
+    company: 'Overskull S.A.C',
+    title: 'Programador',
+    period: '2026',
+    bullets: [
+      'Realicé el mantenimiento y soporte de módulos del sistema, identificando y resolviendo incidencias en plataformas web en producción.',
+      'Desarrollé la maquetación de módulos responsivos, enfocados en usabilidad y rendimiento.',
+      'Implementé y consumí APIs para la integración de funcionalidades y la generación de reportes en Power BI.',
+      'Ejecuté el mantenimiento de bases de datos, asegurando la integridad y disponibilidad de la información.',
+    ],
+  },
   {
     company: 'G2 Solution',
     title: 'Practicante Desarrollador Web',
@@ -24,91 +33,58 @@ const roles: Role[] = [
   {
     company: 'Proyectos académicos y personales',
     title: 'Desarrollador Full Stack',
-    period: '2024 – 2025',
+    period: '2024 – 2026',
     bullets: [
       'Desarrollé aplicaciones web completas como parte de proyectos académicos y personales.',
       'Implementé frontend con React y maquetación previa en Figma.',
       'Desarrollé APIs REST y lógica backend para gestión de datos.',
       'Versioné el código con Git y documenté funcionalidades.',
     ],
-  }
+  },
 ]
 
 export default function Experiencia() {
-  const timelineRef = useRef<HTMLOListElement>(null)
-
-  useEffect(() => {
-    const el = timelineRef.current
-    if (!el) return
-
-    const onScroll = () => {
-      const rect = el.getBoundingClientRect()
-      const windowH = window.innerHeight
-
-      const start = windowH * 0.2
-      const end = windowH * 0.8
-
-      const progress = Math.min(
-        1,
-        Math.max(0, (start - rect.top) / (rect.height + (start - end)))
-      )
-
-      el.style.setProperty('--xp-progress', progress.toString())
-    }
-
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll)
-
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
-    }
-  }, [])
-
   return (
-    <section id="experience" className="section experience">
-      <div className="container">
-        <div className="sectionHead">
-          <h2 className="sectionTitle">Experiencia</h2>
-          <p className="sectionSubtitle">
-            Historial ficticio para que lo reemplaces por el tuyo.
-          </p>
+    <section id="experience" className="skills-terminal">
+      <div className="terminal-titlebar">
+        <span className="terminal-dot red" />
+        <span className="terminal-dot yellow" />
+        <span className="terminal-dot green" />
+        <span className="terminal-titlebar-label">arcnal@portfolio: ~/experiencia</span>
+      </div>
+
+      <div className="terminal-body">
+        <div className="terminal-line terminal-prompt">
+          <span className="terminal-prompt-symbol">arcnal@portfolio</span>
+          <span className="terminal-prompt-path">~$</span>
+          <span className="terminal-prompt-cmd">experiencia --timeline</span>
         </div>
 
-        <ol
-          ref={timelineRef}
-          className="xpTimeline"
-          aria-label="Experiencia laboral"
-        >
-          {roles.map((r, i) => (
-            <li
-              key={r.company}
-              className={`xpItem ${i === 0 ? 'isPrimary' : ''}`}
-            >
-              <div className="xpRail" aria-hidden="true">
-                <span className="xpDot" />
-              </div>
+        {roles.map((r) => (
+          <div className="terminal-group" key={r.company}>
+            <p className="terminal-group-title">
+              <span className="terminal-group-caret">▸</span> {r.title}
+              <span className="terminal-group-hint"> # {r.company} · {r.period}</span>
+            </p>
 
-              <article className="xpCard">
-                <header className="xpHead">
-                  <div className="xpMain">
-                    <h3 className="xpTitle">{r.title}</h3>
-                    <p className="xpCompany">{r.company}</p>
-                  </div>
+            <ul className="terminal-tree">
+              {r.bullets.map((b, i) => (
+                <li key={b} className="terminal-tree-item">
+                  <span className="terminal-tree-branch">
+                    {i === r.bullets.length - 1 ? '└──' : '├──'}
+                  </span>
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
 
-                  <span className="xpPeriod badge">{r.period}</span>
-                </header>
-
-                <ul className="xpBullets">
-                  {r.bullets.map(b => (
-                    <li key={b}>{b}</li>
-                  ))}
-                </ul>
-              </article>
-            </li>
-          ))}
-        </ol>
+        <div className="terminal-line terminal-prompt terminal-prompt--final">
+          <span className="terminal-prompt-symbol">arcnal@portfolio</span>
+          <span className="terminal-prompt-path">~$</span>
+          <span className="terminal-cursor" />
+        </div>
       </div>
     </section>
   )

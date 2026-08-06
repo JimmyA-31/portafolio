@@ -1,0 +1,55 @@
+.boot-screen {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  background: var(--os-bg-deep);
+  color: var(--os-text-primary);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.boot-logo {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--os-glow);
+  text-shadow: 0 0 16px rgba(252, 163, 17, 0.5);
+}
+
+.boot-logo-bracket {
+  color: var(--os-accent);
+}
+
+.boot-bar-track {
+  width: 320px;
+  height: 10px;
+  border-radius: 6px;
+  background: var(--os-bg-panel);
+  border: 1px solid var(--os-border);
+  overflow: hidden;
+}
+
+.boot-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--os-accent), var(--os-glow));
+  transition: width 0.2s ease-out;
+  box-shadow: 0 0 10px rgba(252, 163, 17, 0.6);
+}
+
+.boot-message {
+  font-size: 13px;
+  color: var(--os-text-muted);
+  min-height: 16px;
+}
+
+.boot-footer {
+  position: absolute;
+  bottom: 24px;
+  font-size: 11px;
+  color: var(--os-border);
+}

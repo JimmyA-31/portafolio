@@ -1,127 +1,106 @@
-import { useEffect } from 'react'
-import {
-
-  CpuChipIcon,
-  CircleStackIcon,
-  Squares2X2Icon,
-  SparklesIcon,
-  BoltIcon,
-  ShieldCheckIcon,
-} from '@heroicons/react/24/outline'
 import './About.css'
-
-type Pill = {
-  label: string
-  Icon: React.ComponentType<{ className?: string }>
-}
 
 type Pillar = {
   title: string
   subtitle: string
-  Icon: React.ComponentType<{ className?: string }>
   items: string[]
 }
+
+const stack = ['React / Angular', 'SQL & Data', 'UI moderna', 'Buenas prácticas']
 
 const pillars: Pillar[] = [
   {
     title: 'Lo que hago',
     subtitle: 'Desarrollo completo de aplicaciones, desde la interfaz hasta la base de datos.',
-    Icon: Squares2X2Icon,
     items: [
       'Diseño de APIs REST claras y mantenibles.',
       'Optimización de SQL y modelado relacional.',
-      'Páginas web modernas , intranets y dashboards.',
+      'Páginas web modernas, intranets y dashboards.'
     ],
   },
   {
     title: 'Cómo trabajo',
-    subtitle: 'Priorizo soluciones mantenibles y bien estructuradas.',
-    Icon: SparklesIcon,
+    subtitle: 'Priorizo soluciones escalables, y trabajo de acuerdo a requerimientos.',
     items: [
       'Diseño y desarrollo de interfaces claras, responsive y usables.',
       'Código limpio, tipado y organizado para facilitar mantenimiento.',
-      'Trabajo iterativo con entregas frecuentes y feedback continuo.',
+      'Trabajo continuo con entregas frecuentes y feedback continuo (SCRUM).'
     ],
   },
 ]
 
-const pills: Pill[] = [
-  { label: 'React / Angular', Icon: CpuChipIcon },
-  { label: 'SQL & Data', Icon: CircleStackIcon },
-  { label: 'UI moderna', Icon: BoltIcon },
-  { label: 'Buenas prácticas', Icon: ShieldCheckIcon },
-]
+function toFnName(title: string) {
+  return title
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .split(' ')
+    .map((w, i) => (i === 0 ? w.toLowerCase() : w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()))
+    .join('')
+}
+
+type Line = { type: 'comment' | 'keyword' | 'string' | 'blank'; content: string }
+
+function buildLines(): Line[] {
+  const lines: Line[] = []
+
+  lines.push({ type: 'comment', content: '// about.ts' })
+  lines.push({ type: 'blank', content: '' })
+  lines.push({ type: 'comment', content: '/**' })
+  lines.push({ type: 'comment', content: ' * Desarrollo productos web con backend sólido, datos bien' })
+  lines.push({ type: 'comment', content: ' * diseñados y frontend moderno. Bases limpias, sistemas' })
+  lines.push({ type: 'comment', content: ' * fáciles de mantener.' })
+  lines.push({ type: 'comment', content: ' */' })
+  lines.push({ type: 'blank', content: '' })
+
+  lines.push({ type: 'keyword', content: 'const stack = [' })
+  stack.forEach((s, i) =>
+    lines.push({ type: 'string', content: `  '${s}'${i < stack.length - 1 ? ',' : ''}` })
+  )
+  lines.push({ type: 'keyword', content: '];' })
+  lines.push({ type: 'blank', content: '' })
+
+  pillars.forEach((pillar) => {
+    lines.push({ type: 'keyword', content: `function ${toFnName(pillar.title)}() {` })
+    lines.push({ type: 'comment', content: `  // ${pillar.subtitle}` })
+    lines.push({ type: 'keyword', content: '  return [' })
+    pillar.items.forEach((item, i) =>
+      lines.push({ type: 'string', content: `    '${item}'${i < pillar.items.length - 1 ? ',' : ''}` })
+    )
+    lines.push({ type: 'keyword', content: '  ];' })
+    lines.push({ type: 'keyword', content: '}' })
+    lines.push({ type: 'blank', content: '' })
+  })
+
+  return lines
+}
 
 export default function About() {
-  useEffect(() => {
-    const cards = document.querySelectorAll<HTMLElement>('.aboutCard')
-
-    cards.forEach(card => {
-      const handleMove = (e: MouseEvent) => {
-        const rect = card.getBoundingClientRect()
-        const x = ((e.clientX - rect.left) / rect.width) * 100
-        const y = ((e.clientY - rect.top) / rect.height) * 100
-
-        card.style.setProperty('--x', `${x}%`)
-        card.style.setProperty('--y', `${y}%`)
-      }
-
-      card.addEventListener('mousemove', handleMove)
-
-      card.addEventListener('mouseleave', () => {
-        card.style.removeProperty('--x')
-        card.style.removeProperty('--y')
-      })
-    })
-  }, [])
+  const lines = buildLines()
 
   return (
-    <section id="about" className="section sectionSoft">
-      <div className="container">
-        <header className="sectionHead">
-          <h2 className="sectionTitle">Sobre mí</h2>
-
-          <p className="sectionSubtitle">
-            Desarrollo productos web con backend sólido, datos bien diseñados
-            y frontend moderno. Me enfoco en dejar bases limpias y sistemas
-            fáciles de mantener.
-          </p>
-
-          <div className="pillRow" aria-label="Enfoque técnico principal">
-            {pills.map(p => (
-              <span key={p.label} className="pill">
-                <p.Icon className="pillIcon" />
-                {p.label}
-              </span>
-            ))}
-          </div>
-        </header>
-
-        <div className="grid grid-2">
-          {pillars.map(pillar => (
-            <article
-              key={pillar.title}
-              className="panel glowBorder card aboutCard"
-            >
-              <header className="aboutCardHead">
-                <span className="aboutCardIconWrap" aria-hidden>
-                  <pillar.Icon className="aboutCardIcon" />
-                </span>
-
-                <div>
-                  <p className="aboutCardTitle">{pillar.title}</p>
-                  <p className="aboutCardSubtitle">{pillar.subtitle}</p>
-                </div>
-              </header>
-
-              <ul className="aboutList">
-                {pillar.items.map(item => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </article>
-          ))}
+    <section id="about" className="about-editor">
+      <div className="editor-tabs">
+        <div className="editor-tab">
+          <span className="editor-tab-dot" />
+          about.ts
         </div>
+      </div>
+
+      <div className="editor-body">
+        {lines.map((line, i) => (
+          <div className="editor-line" key={i}>
+            <span className="editor-line-number">{i + 1}</span>
+            <span className={`editor-line-content editor-line--${line.type}`}>
+              {line.content || '\u00A0'}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <div className="editor-statusbar">
+        <span>TypeScript</span>
+        <span>{lines.length} líneas</span>
+        <span>UTF-8</span>
       </div>
     </section>
   )

@@ -1,0 +1,28 @@
+.quick-dock {
+  position: fixed;
+  bottom: 56px;
+  left: 16px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: rgba(20, 33, 61, 0.55);
+  border: 1px solid var(--os-border);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  z-index: 1;
+}
+
+.quick-dock-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.quick-dock-item:hover {
+  background: rgba(252, 163, 17, 0.18);
+  transform: translateY(-2px);
+}

@@ -1,0 +1,34 @@
+.desktop-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 90px;
+  padding: 10px 6px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.desktop-icon:hover,
+.desktop-icon:focus-visible {
+  background: rgba(252, 163, 17, 0.15);
+  border: 1px dashed var(--os-glow);
+  outline: none;
+}
+
+.desktop-icon-glyph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.desktop-icon-label {
+  color: var(--os-text-primary);
+  font-family: 'Chakra Petch', 'Segoe UI', sans-serif;
+  font-size: 12px;
+  text-align: center;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+}

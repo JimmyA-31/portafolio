@@ -1,0 +1,32 @@
+.ambient-terminal {
+  position: fixed;
+  bottom: 56px;
+  right: 16px;
+  padding: 8px 12px;
+  background: rgba(8, 17, 31, 0.6);
+  border: 1px solid var(--os-border);
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--os-accent);
+  min-width: 220px;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.ambient-terminal-cursor {
+  display: inline-block;
+  width: 6px;
+  height: 11px;
+  background: var(--os-glow);
+  margin-left: 3px;
+  vertical-align: middle;
+  animation: ambient-cursor-blink 1s step-end infinite;
+}
+
+@keyframes ambient-cursor-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}

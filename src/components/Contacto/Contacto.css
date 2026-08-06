@@ -1,257 +1,182 @@
-/* ===== Contact (PRO) ===== */
-
-#contact{
-  position: relative;
-  isolation: isolate;
-}
-
-#contact::before{
-  content:"";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  background:
-    radial-gradient(900px 380px at 18% 25%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 62%),
-    radial-gradient(900px 380px at 86% 40%, color-mix(in srgb, var(--accent2) 10%, transparent), transparent 60%);
-}
-
-/* ===== Shell ===== */
-.contactShell{
-  position: relative;
-  overflow: hidden;
-  padding: 20px;
-}
-
-/* ===== Head ===== */
-.contactHead{
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  align-items: flex-end;
-  margin-bottom: 18px;
-}
-
-.contactTitle{
-  margin: 0 0 6px;
-}
-
-.contactSub{
-  margin: 0;
-  max-width: 42ch;
-}
-
-/* ===== Grid ===== */
-.contactGrid{
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 16px;
-}
-
-@media (max-width: 920px){
-  .contactHead{ align-items: flex-start; }
-  .contactGrid{ grid-template-columns: 1fr; }
-}
-
-/* ===== Cards ===== */
-.contactCard{
-  position: relative;
-  border: 1px solid var(--stroke);
-  background: linear-gradient(180deg, var(--surface-1), var(--surface-2));
-  border-radius: 18px;
-  padding: 16px;
-
+.query-console {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  min-height: 100%;
-
-  transition:
-    transform .35s ease,
-    box-shadow .35s ease,
-    border-color .35s ease;
+  height: 100%;
+  background: #08111f;
+  border: 1px solid var(--os-border);
+  border-radius: 4px;
+  overflow: hidden;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
 }
 
-.contactCard:hover{
-  transform: translateY(-4px);
-  border-color: color-mix(in srgb, var(--accent) 35%, var(--stroke));
-  box-shadow:
-    0 10px 30px rgba(0,0,0,.35),
-    inset 0 0 0 1px color-mix(in srgb, var(--accent) 12%, transparent);
+.query-titlebar {
+  padding: 8px 12px;
+  background: var(--os-bg-panel);
+  border-bottom: 1px solid var(--os-border);
+  color: var(--os-text-primary);
+  font-size: 12px;
+  flex-shrink: 0;
 }
 
-address.contactCard{
-  font-style: normal;
+.query-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
 }
 
-/* ===== Contact Lines ===== */
-.contactLine{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px;
-  border-radius: 14px;
-  border: 1px solid var(--stroke);
-  background: var(--surface-2);
-  color: var(--text);
-
-  transition:
-    background .25s ease,
-    transform .25s ease,
-    border-color .25s ease;
+.query-line {
+  margin: 0 0 14px;
+  color: var(--os-text-primary);
 }
 
-.contactLine:hover{
-  background: color-mix(in srgb, var(--accent) 8%, var(--surface-2));
-  border-color: color-mix(in srgb, var(--accent) 40%, var(--stroke));
-  transform: translateX(4px);
+.query-keyword {
+  color: var(--os-glow);
+  font-weight: 700;
 }
 
-.contactLineIcon{
-  width: 18px;
-  height: 18px;
-  opacity: .9;
-  flex: 0 0 18px;
-}
-
-.contactLineText{
-  opacity: .95;
-}
-
-/* ===== CTAs ===== */
-.contactCtas--inCard{
-  margin-top: 14px;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.contactCtas--inCard .btn{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px 16px;
-  border-radius: 999px;
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease;
-}
-
-.contactCtas--inCard .btn:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0,0,0,.25);
-}
-
-/* ===== Nota ===== */
-.contactNote{
-  margin-top: 14px;
-  text-align: center;
-  color: var(--muted);
-  max-width: 46ch;
-  margin-inline: auto;
-  line-height: 1.65;
-}
-
-/* ===== Form ===== */
-.contactCardTitle{
-  margin: 0 0 4px;
-  font-weight: 750;
-  letter-spacing: .3px;
-}
-
-.contactForm{
-  display: grid;
-  gap: 12px;
-}
-
-.contactLabel{
-  display: grid;
-  gap: 6px;
-  font-size: 13px;
-  color: var(--muted);
-}
-
-.contactInput,
-.contactTextarea{
+.query-table {
   width: 100%;
-  border-radius: 14px;
-  border: 1px solid var(--stroke);
-  background: var(--surface-2);
-  color: var(--text);
-  padding: 12px 14px;
+  margin: 0 0 14px;
+  border: 1px solid var(--os-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.query-table-header,
+.query-table-row {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+}
+
+.query-table-header {
+  background: var(--os-bg-panel);
+  border-bottom: 1px solid var(--os-border);
+}
+
+.query-table-header span {
+  padding: 6px 10px;
+  color: var(--os-accent);
+  font-size: 10.5px;
+  text-transform: uppercase;
+}
+
+.query-table-row {
+  border-bottom: 1px solid rgba(58, 80, 107, 0.4);
+}
+
+.query-table-row:last-child {
+  border-bottom: none;
+}
+
+.query-table-row dt,
+.query-table-row dd {
+  margin: 0;
+  padding: 7px 10px;
+  color: var(--os-text-primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.query-table-row dd a {
+  color: var(--os-glow);
+  text-decoration: none;
+}
+
+.query-table-row dd a:hover {
+  text-decoration: underline;
+}
+
+.query-table td a {
+  color: var(--os-glow);
+  text-decoration: none;
+}
+
+.query-table td a:hover {
+  text-decoration: underline;
+}
+
+.query-links {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.query-divider {
+  height: 1px;
+  background: var(--os-border);
+  margin-bottom: 14px;
+  opacity: 0.6;
+}
+
+.query-comment {
+  color: var(--os-text-muted);
+  font-style: italic;
+  margin: 0 0 10px;
+}
+
+.query-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.query-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.query-field-label {
+  color: var(--os-accent);
+  font-size: 11px;
+}
+
+.query-field-label::before {
+  content: '> ';
+  color: var(--os-border);
+}
+
+.query-input {
+  background: var(--os-surface-sunken);
+  border: 1px solid var(--os-border);
+  border-radius: 4px;
+  padding: 8px 10px;
+  color: var(--os-text-primary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px;
   outline: none;
-
-  transition:
-    border-color .25s ease,
-    box-shadow .25s ease,
-    background .25s ease;
 }
 
-.contactInput:focus-visible,
-.contactTextarea:focus-visible{
-  border-color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 4%, var(--surface-2));
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 16%, transparent);
+.query-input:focus {
+  border-color: var(--os-glow);
+  box-shadow: 0 0 6px rgba(252, 163, 17, 0.3);
 }
 
-.contactTextarea{
+.query-textarea {
   resize: vertical;
 }
 
-/* ===== Submit ===== */
-.contactFormActions{
+.query-form-actions {
   display: flex;
-  gap: 12px;
-  margin-top: 6px;
+  justify-content: flex-end;
+  margin-top: 4px;
 }
 
-.contactFormActions .btn{
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding-inline: 18px;
-}
-
-/* ===== Success ===== */
-.contactSuccess{
+.query-result-success {
   padding: 14px;
-  border-radius: 14px;
-  border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--stroke));
-  background: color-mix(in srgb, var(--accent) 12%, var(--surface-2));
+  border: 1px solid var(--os-accent);
+  border-radius: 4px;
+  background: rgba(252, 163, 17, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-/* ===== Scan line animada ===== */
-.contactScan{
-  position: absolute;
-  left: 18px;
-  right: 18px;
-  bottom: 12px;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in srgb, var(--accent) 40%, transparent),
-    transparent
-  );
-  opacity: .6;
-  pointer-events: none;
+.query-result-success-text {
+  margin: 0;
+  color: var(--os-glow);
+  font-size: 12px;
+  line-height: 1.5;
 }
-
-/* ===== Mobile ===== */
-@media (max-width: 520px){
-  .contactCtas--inCard .btn{
-    width: 100%;
-  }
-}
-
-/* ===== Kill animations in Contact ===== */
-
-#contact .glowBorder::before,
-#contact .glowBorder::after{
-  animation: none !important;
-  transform: none !important;
-}
-

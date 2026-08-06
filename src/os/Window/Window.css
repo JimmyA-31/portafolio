@@ -1,0 +1,88 @@
+.os-window {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  background: var(--os-bg-panel);
+  border: 1px solid var(--os-accent);
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 8px 28px rgba(11, 19, 43, 0.6), 0 0 12px rgba(252, 163, 17, 0.12);
+  overflow: hidden;
+  min-width: 260px;
+  min-height: 160px;
+  resize: both;
+}
+
+.os-window-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 34px;
+  padding: 0 8px;
+  background: linear-gradient(180deg, var(--os-accent) 0%, var(--os-bg-deep) 100%);
+  cursor: move;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.os-window-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--os-text-primary);
+  font-family: 'Chakra Petch', 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.os-window-icon {
+  font-size: 14px;
+}
+
+.os-window-controls {
+  display: flex;
+  gap: 4px;
+}
+
+.os-window-btn {
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--os-border);
+  border-radius: 3px;
+  background: rgba(111, 255, 233, 0.08);
+  color: var(--os-text-primary);
+  font-family: monospace;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.os-window-btn:hover {
+  background: rgba(111, 255, 233, 0.2);
+}
+
+.os-window-btn.close:hover {
+  background: #E5484D;
+  border-color: #E5484D;
+}
+
+.os-window-content {
+  flex: 1;
+  overflow: auto;
+  padding: 0px;
+  background: var(--os-bg-deep);
+  color: var(--os-text-primary);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.os-window--mobile {
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  box-shadow: none;
+  resize: none;
+}
+
+.os-window-titlebar--mobile {
+  cursor: default;
+  height: 44px;
+}
