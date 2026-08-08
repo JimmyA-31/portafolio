@@ -1,0 +1,34 @@
+.mobile-intro {
+  position: fixed;
+  top: 18px;
+  left: 16px;
+  right: 16px;
+  padding: 10px 14px;
+  background: rgba(20, 33, 61, 0.55);
+  border: 1px solid var(--os-border);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--os-text-primary);
+  display: flex;
+  align-items: center;
+  min-height: 20px;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.mobile-intro-cursor {
+  display: inline-block;
+  width: 6px;
+  height: 14px;
+  background: var(--os-accent);
+  margin-left: 3px;
+  animation: mobile-intro-blink 1s step-end infinite;
+}
+
+@keyframes mobile-intro-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}

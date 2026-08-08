@@ -29,6 +29,12 @@
     flex-direction: unset;
     flex-wrap: unset;
     height: auto;
-    padding: 20px 14px;
+    padding: 76px 14px 20px;
   }
+}
+
+.os-desktop-icons-area {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 40px);
 }

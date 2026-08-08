@@ -11,6 +11,7 @@ import Proyectos from '../components/Proyectos/Proyectos';
 import Skills from '../components/Skills/Skills';
 import Experiencia from '../components/Experiencia/Experiencia';
 import Contacto from '../components/Contacto/Contacto';
+import TerminalApp from './apps/TerminalApp';
 
 export interface AppConfig {
   id: string;
@@ -71,4 +72,13 @@ export const desktopApps: AppConfig[] = [
     width: 480,
     height: 440,
   },
+  {
+  id: 'terminal',
+  label: 'Terminal.exe',
+  title: 'Terminal.exe',
+  icon: <Terminal {...ICON_PROPS} color="var(--os-accent)" />,
+  content: <TerminalApp />,
+  width: 560,
+  height: 400,
+},
 ];

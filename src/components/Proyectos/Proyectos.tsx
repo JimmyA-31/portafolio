@@ -13,25 +13,32 @@ type Project = {
 
 const projects: Project[] = [
   {
+    name: 'ShopVue',
+    desc: 'Página web de E-commerce para venta de productos de tecnología, ropa y accesorios.',
+    stack: ['Vue.js', 'CSS', 'Figma', 'Typescript', 'Vercel'],
+    year: 2026,
+    demo: 'https://e-commerce-vue-lime.vercel.app/',
+  },
+  {
     name: 'Whizzet',
     desc: 'Página web de agencia de marketing digital, branding y desarrollo web.',
-    stack: ['PHP', 'MySql', 'Javascript', 'Figma', 'Bootstrap'],
+    stack: ['PHP', 'MySql', 'Javascript', 'Figma', 'Bootstrap','Hostinger'],
     year: 2025,
     demo: 'https://whizzet.com/',
   },
   {
     name: 'G2 Solution',
     desc: 'Página web de empresa de seguridad electrónica y mantenimiento.',
-    stack: ['PHP', 'MySql', 'Javascript', 'Figma', 'Bootstrap'],
+    stack: ['PHP', 'MySql', 'Javascript', 'Figma', 'Bootstrap','Hostinger'],
     year: 2025,
     demo: 'https://g2solutionperu.com/',
   },
   {
-    name: 'ShopVue',
-    desc: 'Página web de E-commerce para venta de productos de tecnología, ropa y accesorios.',
-    stack: ['Vue.js', 'CSS', 'Figma', 'Typescript', 'Vercel'],
-    year: 2026,
-    demo: 'https://e-commerce-vue-lime.vercel.app/',
+    name: 'AutoAcademia',
+    desc: 'CRM especializado para una academia de manejo, con control de usuarios por roles y validacion de modulos por rol, además de una seccion de reportes para exportar en Excel/PDF, dashboards personalizados de ventas.',
+    stack: ['PHP', 'MySql', 'Javascript', 'Figma', 'Bootstrap','Hostinger'],
+    year: 2025,
+    demo: 'https://autoacademia.whizzet.com/',
   },
 ]
 

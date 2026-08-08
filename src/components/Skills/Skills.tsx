@@ -10,11 +10,11 @@ type Skill = {
 const skills: readonly Skill[] = [
   {
     group: 'Frontend',
-    items: ['React', 'Figma', 'Angular', 'Tailwind CSS', 'Accesibilidad'],
+    items: ['React', 'Figma', 'Angular', 'Vue', 'Tailwind CSS'],
   },
   {
     group: 'Backend',
-    items: ['Node.js', 'APIs REST', 'JAVA', 'C#', 'Arquitectura por capas'],
+    items: ['JAVA', 'PHP', 'C#', 'Node.js', 'APIs REST', 'Arquitectura por capas'],
   },
   {
     group: 'Datos',
@@ -22,7 +22,7 @@ const skills: readonly Skill[] = [
   },
   {
     group: 'DevOps',
-    items: ['Git & GitHub', 'Gestión de dominios y subdominios'],
+    items: ['Git & GitHub', 'Postman', 'Gestión de dominios y subdominios'],
   },
 ]
 

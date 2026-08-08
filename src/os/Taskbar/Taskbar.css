@@ -104,3 +104,22 @@
     padding: 0 8px;
   }
 }
+
+@media (max-width: 768px) {
+  .os-start-btn {
+    animation: start-btn-pulse 2.5s ease-in-out infinite;
+  }
+
+  .os-start-btn.active {
+    animation: none;
+  }
+}
+
+@keyframes start-btn-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(252, 163, 17, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(252, 163, 17, 0);
+  }
+}

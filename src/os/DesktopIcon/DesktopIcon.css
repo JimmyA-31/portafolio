@@ -32,3 +32,13 @@
   text-align: center;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
 }
+
+.desktop-icon--draggable {
+  position: absolute;
+  cursor: grab;
+  user-select: none;
+}
+
+.desktop-icon--draggable:active {
+  cursor: grabbing;
+}
