@@ -5,7 +5,9 @@ interface ParticlesBackgroundProps {
   count?: number;
 }
 
-export default function ParticlesBackground({ count = 28 }: ParticlesBackgroundProps) {
+export default function ParticlesBackground({
+  count = 28,
+}: ParticlesBackgroundProps) {
   const particles = useMemo(
     () =>
       Array.from({ length: count }, (_, i) => ({
@@ -19,7 +21,7 @@ export default function ParticlesBackground({ count = 28 }: ParticlesBackgroundP
   );
 
   return (
-    <div className="particles-layer" aria-hidden>
+    <div className="particles-layer">
       {particles.map((p) => (
         <span
           key={p.id}

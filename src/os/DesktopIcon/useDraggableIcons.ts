@@ -49,6 +49,29 @@ export function useDraggableIcons(apps: AppConfig[], containerRef: RefObject<HTM
     [positions]
   );
 
+  const resetPositions = useCallback(() => {
+  const containerHeight = containerRef.current?.clientHeight ?? 600;
+  const maxRows = Math.max(1, Math.floor((containerHeight - START_Y) / ICON_HEIGHT));
+
+  const next: Record<string, { x: number; y: number }> = {};
+  let col = 0;
+  let row = 0;
+
+  apps.forEach((app) => {
+    next[app.id] = {
+      x: START_X + col * ICON_WIDTH,
+      y: START_Y + row * ICON_HEIGHT,
+    };
+    row += 1;
+    if (row >= maxRows) {
+      row = 0;
+      col += 1;
+    }
+  });
+
+  setPositions(next);
+}, [apps, containerRef]);
+
   useEffect(() => {
     function handleMouseMove(e: MouseEvent) {
       if (!dragState.current) return;
@@ -75,5 +98,5 @@ export function useDraggableIcons(apps: AppConfig[], containerRef: RefObject<HTM
     };
   }, [containerRef]);
 
-  return { positions, handleDragStart };
+  return { positions, handleDragStart, resetPositions };
 }
