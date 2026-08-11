@@ -21,7 +21,7 @@ export default function SnakeGame() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [snake, setSnake] = useState<Point[]>([{ x: 10, y: 10 }, { x: 9, y: 10 }, { x: 8, y: 10 }]);
   const [food, setFood] = useState<Point>(() => randomFood([{ x: 10, y: 10 }]));
-  const [direction, setDirection] = useState<Direction>('RIGHT');
+
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
   const directionRef = useRef<Direction>('RIGHT');
@@ -33,7 +33,7 @@ export default function SnakeGame() {
     setFood(randomFood(initial));
     directionRef.current = 'RIGHT';
     lastAppliedDirection.current = 'RIGHT';
-    setDirection('RIGHT');
+
     setGameOver(false);
     setScore(0);
   }, []);
@@ -101,10 +101,6 @@ export default function SnakeGame() {
 
     return () => clearInterval(interval);
   }, [gameOver, food]);
-
-  useEffect(() => {
-    setDirection(directionRef.current);
-  }, [snake]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
