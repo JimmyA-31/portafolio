@@ -60,6 +60,9 @@ export default function Taskbar({ apps }: { apps: TaskbarApp[] }) {
 
         <TechTicker />
 
+        <span className="os-taskbar-hint">
+          <kbd>Ctrl</kbd>+<kbd>K</kbd> buscar
+        </span>
         <span className="os-taskbar-clock">{clock}</span>
       </div>
     </>

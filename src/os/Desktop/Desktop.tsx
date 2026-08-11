@@ -5,7 +5,7 @@ import DesktopIcon from '../DesktopIcon/DesktopIcon';
 import { useDraggableIcons } from '../DesktopIcon/useDraggableIcons';
 import WindowsLayer from '../Window/WindowsLayer';
 import Taskbar from '../Taskbar/Taskbar';
-import { desktopApps } from '../appsConfig';
+import { desktopApps, allApps } from '../appsConfig';
 import AmbientTerminal from '../Widgets/AmbientTerminal';
 import QuickDock from '../Widgets/QuickDock';
 import GitHubStatsWidget from '../Widgets/GitHubStatsWidget';
@@ -14,6 +14,7 @@ import MobileIntro from '../Widgets/MobileIntro';
 import ParticlesBackground from '../Widgets/ParticlesBackground';
 import ContextMenu from '../ContextMenu/ContextMenu';
 import { accentThemes, applyAccentTheme } from '../accentThemes';
+import CommandPalette from '../CommandPalette/CommandPalette';
 import './Desktop.css';
 
 export default function Desktop() {
@@ -100,6 +101,7 @@ export default function Desktop() {
       )}
 
       <WindowsLayer />
+      <CommandPalette />
       <ParticlesBackground count={isMobile ? 26 : 45} />
 
       {isMobile ? (
@@ -126,7 +128,7 @@ export default function Desktop() {
         />
       )}
 
-      <Taskbar apps={desktopApps} />
+      <Taskbar apps={allApps} />
     </div>
   );
 }

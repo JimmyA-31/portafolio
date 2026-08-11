@@ -1,0 +1,48 @@
+.extras-folder {
+  height: 100%;
+  padding: 14px;
+  background: var(--os-bg-deep);
+}
+
+.extras-folder-hint {
+  margin: 0 0 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  color: var(--os-text-muted);
+}
+
+.extras-folder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: 10px;
+}
+
+.extras-folder-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 6px;
+  background: rgba(20, 33, 61, 0.4);
+  border: 1px solid var(--os-border);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.extras-folder-item:hover {
+  border-color: var(--os-accent);
+  background: rgba(252, 163, 17, 0.08);
+}
+
+.extras-folder-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.extras-folder-label {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 11px;
+  color: var(--os-text-primary);
+  text-align: center;
+}

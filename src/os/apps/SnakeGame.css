@@ -1,0 +1,61 @@
+.snake-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  background: #08111f;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 10px;
+  gap: 8px;
+}
+
+.snake-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: var(--os-text-primary);
+  font-size: 12px;
+}
+
+.snake-score {
+  color: var(--os-accent);
+}
+
+.snake-canvas-wrap {
+  position: relative;
+  border: 1px solid var(--os-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.snake-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--os-glow);
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 15px;
+}
+
+.snake-overlay button {
+  padding: 6px 14px;
+  border-radius: 4px;
+  border: 1px solid var(--os-accent);
+  background: var(--os-accent);
+  color: var(--os-bg-deep);
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.snake-hint {
+  margin: 0;
+  color: var(--os-text-muted);
+  font-size: 10.5px;
+}

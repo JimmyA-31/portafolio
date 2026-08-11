@@ -9,16 +9,18 @@
   bottom: 40px;
   left: 8px;
   width: 240px;
+  max-height: calc(100vh - 72px);
   background: var(--os-bg-panel);
   border: 1px solid var(--os-accent);
   border-radius: 8px 8px 0 0;
-  box-shadow: 0 -6px 24px rgba(11, 19, 43, 0.6), 0 0 16px rgba(252, 163, 17, 0.12);
+  box-shadow: 0 -6px 24px rgba(11, 19, 43, 0.6), 0 0 16px rgba(111, 255, 233, 0.1);
   z-index: 9999;
   padding: 14px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   font-family: 'Chakra Petch', sans-serif;
+  overflow: hidden;
 }
 
 .start-menu-brand {
@@ -104,4 +106,9 @@
     max-height: calc(100% - 40px);
     overflow-y: auto;
   }
+}
+
+.start-menu-links {
+  overflow-y: auto;
+  min-height: 0;
 }

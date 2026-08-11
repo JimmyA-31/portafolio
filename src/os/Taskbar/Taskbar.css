@@ -123,3 +123,31 @@
     box-shadow: 0 0 0 6px rgba(252, 163, 17, 0);
   }
 }
+
+.os-taskbar-hint {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  color: var(--os-text-muted);
+  border-left: 1px solid var(--os-border);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.os-taskbar-hint kbd {
+  padding: 1px 5px;
+  border: 1px solid var(--os-border);
+  border-radius: 3px;
+  background: rgba(252, 163, 17, 0.08);
+  color: var(--os-accent);
+  font-size: 10px;
+}
+
+@media (max-width: 768px) {
+  .os-taskbar-hint {
+    display: none;
+  }
+}
