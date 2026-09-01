@@ -53,6 +53,7 @@ export default function Desktop() {
     openWindow({
       id: 'about-os',
       title: 'Acerca de ArcnalOS',
+      icon: <Info size={16} weight="regular" color="var(--os-glow)" />,
       content: (
         <div style={{ padding: 8, fontFamily: 'JetBrains Mono, monospace', fontSize: 12.5, lineHeight: 1.7 }}>
           <p style={{ color: 'var(--os-glow)', fontFamily: 'Chakra Petch, sans-serif', fontSize: 16 }}>

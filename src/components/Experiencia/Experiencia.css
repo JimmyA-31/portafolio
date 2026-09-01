@@ -1,39 +1,8 @@
 .skills-terminal {
-  display: flex;
-  flex-direction: column;
   height: 100%;
   background: #08111f;
-  border: 1px solid var(--os-border);
-  border-radius: 4px;
-  overflow: hidden;
   font-family: 'JetBrains Mono', monospace;
   font-size: 12.5px;
-}
-
-.terminal-titlebar {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 12px;
-  background: var(--os-bg-panel);
-  border-bottom: 1px solid var(--os-border);
-  flex-shrink: 0;
-}
-
-.terminal-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-}
-
-.terminal-dot.red { background: #E5484D; }
-.terminal-dot.yellow { background: #E5B93D; }
-.terminal-dot.green { background: #5BC0BE; }
-
-.terminal-titlebar-label {
-  margin-left: 8px;
-  font-size: 11px;
-  color: var(--os-text-muted);
 }
 
 .terminal-body {

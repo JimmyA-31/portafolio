@@ -57,12 +57,19 @@ export default function Taskbar({ apps }: { apps: TaskbarApp[] }) {
             );
           })}
         </div>
-
-        <TechTicker />
-
+        {
+          windows.length <= 3 && (
+            <>
+              <div className="os-taskbar-divider" />
+              <TechTicker />
+              <div className="os-taskbar-divider" />
+            </>
+          )
+        }
         <span className="os-taskbar-hint">
           <kbd>Ctrl</kbd>+<kbd>K</kbd> buscar
         </span>
+
         <span className="os-taskbar-clock">{clock}</span>
       </div>
     </>

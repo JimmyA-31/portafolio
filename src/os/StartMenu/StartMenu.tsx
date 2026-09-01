@@ -60,9 +60,6 @@ export default function StartMenu({ onClose }: StartMenuProps) {
 
         <div className="start-menu-footer">
           <p>© {year} Jimmy Dev</p>
-          <p>
-            Hecho con <strong>React</strong> + <strong>TypeScript</strong>
-          </p>
         </div>
       </div>
     </>

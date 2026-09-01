@@ -6,7 +6,7 @@ type Pillar = {
   items: string[]
 }
 
-const stack = ['React / Angular', 'SQL & Data', 'UI moderna', 'Buenas prácticas']
+const stack = ['React / Angular','PHP / Laravel','Java / SpringBoot','Python / C#', 'SQL & Data', 'UI/UX moderna']
 
 const pillars: Pillar[] = [
   {

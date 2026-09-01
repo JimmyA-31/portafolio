@@ -46,13 +46,6 @@ const roles: Role[] = [
 export default function Experiencia() {
   return (
     <section id="experience" className="skills-terminal">
-      <div className="terminal-titlebar">
-        <span className="terminal-dot red" />
-        <span className="terminal-dot yellow" />
-        <span className="terminal-dot green" />
-        <span className="terminal-titlebar-label">arcnal@portfolio: ~/experiencia</span>
-      </div>
-
       <div className="terminal-body">
         <div className="terminal-line terminal-prompt">
           <span className="terminal-prompt-symbol">arcnal@portfolio</span>

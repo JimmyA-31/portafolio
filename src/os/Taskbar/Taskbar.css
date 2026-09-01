@@ -3,13 +3,15 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 40px;
+  height: 44px;
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 0 8px;
-  background: linear-gradient(180deg, var(--os-accent) 0%, var(--os-bg-deep) 100%);
-  border-top: 1px solid var(--os-border);
+  padding: 0 10px;
+  background: linear-gradient(180deg, rgba(20, 33, 61, 0.97) 0%, rgba(10, 14, 23, 0.98) 100%);
+  border-top: 1px solid rgba(229, 229, 229, 0.14);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
   z-index: 9999;
   overflow: hidden;
 }
@@ -17,23 +19,40 @@
 .os-start-btn {
   display: flex;
   align-items: center;
-  gap: 6px;
-  height: 30px;
-  padding: 0 12px;
-  border-radius: 4px;
-  border: 1px solid var(--os-border);
-  background: var(--os-glow);
+  gap: 7px;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(var(--os-accent-rgb), 0.35);
+  background: linear-gradient(160deg, var(--os-accent) 0%, #d98a0d 100%);
   color: var(--os-bg-deep);
   font-family: 'Chakra Petch', sans-serif;
   font-weight: 700;
   font-size: 13px;
   cursor: pointer;
   flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(var(--os-accent-rgb), 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.os-start-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(var(--os-accent-rgb), 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .os-start-btn.active {
   background: var(--os-bg-deep);
   color: var(--os-glow);
+  border-color: var(--os-accent);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+  transform: translateY(0);
+}
+
+.os-taskbar-divider {
+  width: 1px;
+  height: 22px;
+  background: rgba(229, 229, 229, 0.14);
+  flex-shrink: 0;
 }
 
 .os-taskbar-items {
@@ -41,8 +60,7 @@
   align-items: center;
   gap: 6px;
   height: 100%;
-  flex: 0 1 auto;
-  max-width: 45%;
+  flex: 1 1 auto;
   min-width: 0;
   overflow-x: auto;
   overflow-y: hidden;
@@ -51,24 +69,40 @@
 .os-taskbar-item {
   display: flex;
   align-items: center;
-  gap: 6px;
-  height: 30px;
-  max-height: 30px;
-  padding: 0 10px;
-  border-radius: 3px;
-  border: 1px solid var(--os-border);
-  background: rgba(252, 163, 17, 0.1);
+  gap: 7px;
+  height: 32px;
+  max-height: 32px;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(229, 229, 229, 0.12);
+  background: rgba(255, 255, 255, 0.04);
   color: var(--os-text-primary);
   font-family: 'Chakra Petch', sans-serif;
   font-size: 12px;
   cursor: pointer;
   white-space: nowrap;
   flex-shrink: 0;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.os-taskbar-item:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .os-taskbar-item.active {
-  background: rgba(252, 163, 17, 0.25);
-  box-shadow: 0 0 8px rgba(252, 163, 17, 0.4);
+  background: rgba(var(--os-accent-rgb), 0.16);
+  border-color: rgba(var(--os-accent-rgb), 0.4);
+  box-shadow: 0 0 0 1px rgba(var(--os-accent-rgb), 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.os-taskbar-item.active::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--os-accent);
+  box-shadow: 0 0 5px var(--os-accent);
+  flex-shrink: 0;
 }
 
 .os-taskbar-icon {
@@ -85,24 +119,35 @@
   height: 16px;
 }
 
-.os-taskbar-clock {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  color: var(--os-text-primary);
+.os-taskbar-hint {
+  display: flex;
+  align-items: center;
+  gap: 4px;
   padding: 0 10px;
-  border-left: 1px solid var(--os-border);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  color: var(--os-text-muted);
   white-space: nowrap;
   flex-shrink: 0;
 }
 
-@media (max-width: 768px) {
-  .os-taskbar-item span:last-child {
-    display: none;
-  }
+.os-taskbar-hint kbd {
+  padding: 1px 5px;
+  border: 1px solid rgba(229, 229, 229, 0.18);
+  border-radius: 4px;
+  background: rgba(var(--os-accent-rgb), 0.1);
+  color: var(--os-accent);
+  font-size: 10px;
+}
 
-  .os-taskbar-item {
-    padding: 0 8px;
-  }
+.os-taskbar-clock {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--os-text-primary);
+  padding: 0 4px 0 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
@@ -113,41 +158,25 @@
   .os-start-btn.active {
     animation: none;
   }
+
+  .os-taskbar-hint {
+    display: none;
+  }
+
+  .os-taskbar-item span:last-child {
+    display: none;
+  }
+
+  .os-taskbar-item {
+    padding: 0 8px;
+  }
 }
 
 @keyframes start-btn-pulse {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(252, 163, 17, 0.5);
+    box-shadow: 0 0 0 0 rgba(var(--os-accent-rgb), 0.5);
   }
   50% {
-    box-shadow: 0 0 0 6px rgba(252, 163, 17, 0);
-  }
-}
-
-.os-taskbar-hint {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 0 10px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10.5px;
-  color: var(--os-text-muted);
-  border-left: 1px solid var(--os-border);
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.os-taskbar-hint kbd {
-  padding: 1px 5px;
-  border: 1px solid var(--os-border);
-  border-radius: 3px;
-  background: rgba(252, 163, 17, 0.08);
-  color: var(--os-accent);
-  font-size: 10px;
-}
-
-@media (max-width: 768px) {
-  .os-taskbar-hint {
-    display: none;
+    box-shadow: 0 0 0 6px rgba(var(--os-accent-rgb), 0);
   }
 }

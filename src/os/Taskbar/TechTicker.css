@@ -1,6 +1,6 @@
 .taskbar-ticker {
-  flex: 1;
-  min-width: 120px;
+  flex: 0 1 140px;
+  min-width: 0;
   overflow: hidden;
   height: 30px;
   display: flex;

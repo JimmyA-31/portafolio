@@ -2,14 +2,15 @@
   position: fixed;
   top: 90px;
   right: 16px;
-  padding: 10px 14px;
-  background: rgba(20, 33, 61, 0.55);
-  border: 1px solid var(--os-border);
-  border-radius: 6px;
-  backdrop-filter: blur(4px);
+  padding: 12px 16px;
+  background: linear-gradient(160deg, rgba(20, 33, 61, 0.85) 0%, rgba(10, 14, 23, 0.9) 100%);
+  border: 1px solid rgba(229, 229, 229, 0.14);
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(6px);
   font-family: 'JetBrains Mono', monospace;
   z-index: 1;
-  min-width: 180px;
+  min-width: 190px;
 }
 
 .github-stats-header {
@@ -18,9 +19,9 @@
   gap: 6px;
   font-size: 10.5px;
   color: var(--os-text-primary);
-  margin-bottom: 6px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid var(--os-border);
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(229, 229, 229, 0.12);
 }
 
 .github-stats-loading {
@@ -32,13 +33,21 @@
 .github-stats-grid {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
 .github-stats-item {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
+  padding: 4px 6px;
+  border-radius: 6px;
   font-size: 10.5px;
   color: var(--os-text-muted);
+  transition: background 0.15s ease;
+}
+
+.github-stats-item:hover {
+  background: rgba(var(--os-accent-rgb), 0.08);
+  color: var(--os-text-primary);
 }

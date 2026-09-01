@@ -1,12 +1,16 @@
 :root {
   /* Paleta ArcnalOS v2 */
-  --os-bg-deep: #000000;      /* fondo del escritorio, contenido de ventanas */
+  --os-bg-deep: #0A0E17;      /* fondo del escritorio — negro con tinte azul, menos agresivo que negro puro */
   --os-bg-panel: #14213D;     /* ventanas, taskbar, paneles */
-  --os-border: rgba(229, 229, 229, 0.22); /* bordes sutiles derivados del alabaster */
-  --os-accent: #FCA311;       /* acento principal: barras de título, botones, hover */
-  --os-glow: #E5E5E5;         /* highlight, texto brillante, cursor */
+  --os-surface-sunken: #0D1220; /* negro suavizado con tinte azul prusia, para paneles internos */
+  --os-border: rgba(229, 229, 229, 0.16); /* bordes sutiles, más discretos */
 
-  --os-text-primary: #FFFFFF;
-  --os-text-muted: rgba(229, 229, 229, 0.65);
-  --os-surface-sunken: #080D18; /* negro suavizado con tinte azul prusia, para paneles internos */
+  --os-accent: #FCA311;       /* acento principal: barras de título, botones, hover */
+  --os-accent-rgb: 252, 163, 17; /* mismo valor en formato RGB, para usar en rgba() dinámico */
+
+  --os-glow: #FFD180;         /* highlight, texto brillante, cursor — dorado cálido en vez de blanco puro */
+  --os-glow-rgb: 255, 208, 128;
+
+  --os-text-primary: #F2F2F0; /* blanco roto, menos duro que blanco puro */
+  --os-text-muted: rgba(242, 242, 240, 0.62);
 }
