@@ -1,5 +1,6 @@
 import type { AppConfig } from '../appsConfig';
 import { useWindowManager } from '../WindowManager/WindowManager';
+import { buildWindowConfig } from '../openApp';
 import './ExtrasFolder.css';
 
 interface ExtrasFolderProps {
@@ -18,16 +19,7 @@ export default function ExtrasFolder({ apps }: ExtrasFolderProps) {
             key={app.id}
             type="button"
             className="extras-folder-item"
-            onDoubleClick={() =>
-              openWindow({
-                id: app.id,
-                title: app.title,
-                icon: app.icon,
-                content: app.content,
-                width: app.width,
-                height: app.height,
-              })
-            }
+            onDoubleClick={() => openWindow(buildWindowConfig(app))}
           >
             <span className="extras-folder-icon">{app.icon}</span>
             <span className="extras-folder-label">{app.label}</span>

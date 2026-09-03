@@ -16,6 +16,9 @@ export interface WindowConfig {
   height?: number;
   x?: number;
   y?: number;
+  accentColor?: string;
+  typeLabel?: string;
+  windowStyle?: string;
 }
 
 interface WindowState {
@@ -30,6 +33,9 @@ interface WindowState {
   size: { width: number; height: number };
   prevPosition?: { x: number; y: number };
   prevSize?: { width: number; height: number };
+  accentColor?: string;
+  typeLabel?: string;
+  windowStyle?: string;
 }
 
 interface WindowManagerContextType {
@@ -78,6 +84,9 @@ export function WindowManagerProvider({ children }: { children: ReactNode }) {
         zIndex: zCounter.current,
         position: { x: config.x ?? 120 + offset, y: config.y ?? 30 + offset },
         size: { width: config.width ?? 520, height: config.height ?? 420 },
+        accentColor: config.accentColor,
+        typeLabel: config.typeLabel,
+        windowStyle : config.windowStyle,
       };
       return [...prev, newWindow];
     });

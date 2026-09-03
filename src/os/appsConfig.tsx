@@ -29,6 +29,9 @@ export interface AppConfig {
   content: ReactNode;
   width: number;
   height: number;
+  accentColor: string;
+  typeLabel: string;
+  windowStyle?: string;
 }
 
 const ICON_SIZE = 34;
@@ -44,6 +47,9 @@ export const extraApps: AppConfig[] = [
     content: <ChatbotApp />,
     width: 420,
     height: 500,
+    accentColor: '#5BC0BE',
+    typeLabel: 'BOT',
+    windowStyle: 'chat',
   },
   {
     id: 'snake',
@@ -53,6 +59,9 @@ export const extraApps: AppConfig[] = [
     content: <SnakeGame />,
     width: 420,
     height: 460,
+    accentColor: '#22C55E',
+    typeLabel: 'GAME',
+    windowStyle: 'game',
   },
   {
     id: 'minesweeper',
@@ -60,8 +69,11 @@ export const extraApps: AppConfig[] = [
     title: 'Buscaminas.exe',
     icon: <BombIcon {...ICON_PROPS} color="var(--os-accent)" />,
     content: <MinesweeperGame />,
-    width: 320,
-    height: 340,
+    width: 380,
+    height: 390,
+    accentColor: '#E5484D',
+    typeLabel: 'GAME',
+    windowStyle: 'game',
   },
 ];
 
@@ -73,8 +85,11 @@ export const desktopApps: AppConfig[] = [
     title: 'about.ts',
     icon: <FileCode {...ICON_PROPS} color="var(--os-glow)" />,
     content: <About />,
-    width: 520,
+    width: 700,
     height: 460,
+    accentColor: '#5BC0BE',
+    typeLabel: 'TS',
+    windowStyle: 'editor',
   },
   {
     id: 'proyectos',
@@ -84,6 +99,9 @@ export const desktopApps: AppConfig[] = [
     content: <Proyectos />,
     width: 680,
     height: 520,
+    accentColor: '#FCA311',
+    typeLabel: 'DIR',
+    windowStyle: 'explorer',
   },
   {
     id: 'skills',
@@ -93,6 +111,9 @@ export const desktopApps: AppConfig[] = [
     content: <Skills />,
     width: 620,
     height: 500,
+    accentColor: '#22C55E',
+    typeLabel: 'MAP',
+    windowStyle: 'editor',
   },
   {
     id: 'experiencia',
@@ -102,15 +123,21 @@ export const desktopApps: AppConfig[] = [
     content: <Experiencia />,
     width: 600,
     height: 500,
+    accentColor: '#94A3B8',
+    typeLabel: 'LOG',
+    windowStyle: 'terminal',
   },
   {
     id: 'contacto',
-    label: 'Contacto.db',
-    title: 'Contacto.db',
+    label: 'Contacto',
+    title: 'Contacto',
     icon: <Database {...ICON_PROPS} color="var(--os-glow)" />,
     content: <Contacto />,
     width: 480,
     height: 440,
+    accentColor: '#9B5DE5',
+    typeLabel: 'SQL',
+    windowStyle: 'database',
   },
   {
     id: 'terminal',
@@ -120,6 +147,9 @@ export const desktopApps: AppConfig[] = [
     content: <TerminalApp />,
     width: 560,
     height: 400,
+    accentColor: '#F97316',
+    typeLabel: 'SH',
+    windowStyle: 'terminal',
   },
   {
     id: 'extras',
@@ -128,7 +158,10 @@ export const desktopApps: AppConfig[] = [
     icon: <Package {...ICON_PROPS} color="var(--os-glow)" />,
     content: <ExtrasFolder apps={extraApps} />,
     width: 420,
-    height: 320,
+    height: 390,
+    accentColor: '#FCA311',
+    typeLabel: 'DIR',
+    windowStyle: 'explorer',
   },
 ];
 

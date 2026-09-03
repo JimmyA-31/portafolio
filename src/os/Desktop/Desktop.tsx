@@ -1,4 +1,4 @@
-import { useRef, useState, type MouseEvent } from 'react';
+import { useEffect, useRef, useState, type MouseEvent } from 'react';
 import { ArrowsClockwise, Palette, Info, SquaresFour } from '@phosphor-icons/react';
 import { useWindowManager } from '../WindowManager/WindowManager';
 import DesktopIcon from '../DesktopIcon/DesktopIcon';
@@ -13,8 +13,9 @@ import { useIsMobile } from '../../hooks/useIsMobile';
 import MobileIntro from '../Widgets/MobileIntro';
 import ParticlesBackground from '../Widgets/ParticlesBackground';
 import ContextMenu from '../ContextMenu/ContextMenu';
-import { accentThemes, applyAccentTheme } from '../accentThemes';
+import { accentThemes, applyAccentTheme, loadStoredAccentIndex } from '../accentThemes';
 import CommandPalette from '../CommandPalette/CommandPalette';
+import { buildWindowConfig } from '../openApp';
 import './Desktop.css';
 
 export default function Desktop() {
@@ -24,22 +25,18 @@ export default function Desktop() {
   const { positions, handleDragStart, resetPositions } = useDraggableIcons(desktopApps, iconsAreaRef);
 
   const [menu, setMenu] = useState<{ x: number; y: number } | null>(null);
-  const [accentIndex, setAccentIndex] = useState(0);
+  const [accentIndex, setAccentIndex] = useState(() => loadStoredAccentIndex());
+
+  useEffect(() => {
+    applyAccentTheme(accentIndex);
+  }, []);
 
   const handleOpen = (app: (typeof desktopApps)[number]) => {
-    openWindow({
-      id: app.id,
-      title: app.title,
-      icon: app.icon,
-      content: app.content,
-      width: app.width,
-      height: app.height,
-    });
+    openWindow(buildWindowConfig(app));
   };
 
   const handleContextMenu = (e: MouseEvent) => {
     e.preventDefault();
-
     setMenu({ x: e.clientX, y: e.clientY });
   };
 
@@ -54,6 +51,8 @@ export default function Desktop() {
       id: 'about-os',
       title: 'Acerca de ArcnalOS',
       icon: <Info size={16} weight="regular" color="var(--os-glow)" />,
+      typeLabel: 'SYS',
+      accentColor: '#94A3B8',
       content: (
         <div style={{ padding: 8, fontFamily: 'JetBrains Mono, monospace', fontSize: 12.5, lineHeight: 1.7 }}>
           <p style={{ color: 'var(--os-glow)', fontFamily: 'Chakra Petch, sans-serif', fontSize: 16 }}>

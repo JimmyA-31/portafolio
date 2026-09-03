@@ -79,13 +79,6 @@ export default function About() {
 
   return (
     <section id="about" className="about-editor">
-      <div className="editor-tabs">
-        <div className="editor-tab">
-          <span className="editor-tab-dot" />
-          about.ts
-        </div>
-      </div>
-
       <div className="editor-body">
         {lines.map((line, i) => (
           <div className="editor-line" key={i}>

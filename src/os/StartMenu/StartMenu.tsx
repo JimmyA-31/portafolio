@@ -1,6 +1,7 @@
 import { LinkedinLogo, ArrowSquareOut } from '@phosphor-icons/react';
 import { desktopApps, type AppConfig } from '../appsConfig';
 import { useWindowManager } from '../WindowManager/WindowManager';
+import { buildWindowConfig } from '../openApp';
 import './StartMenu.css';
 
 interface StartMenuProps {
@@ -11,14 +12,7 @@ export default function StartMenu({ onClose }: StartMenuProps) {
   const { openWindow } = useWindowManager();
 
   const handleOpen = (app: AppConfig) => {
-    openWindow({
-      id: app.id,
-      title: app.title,
-      icon: app.icon,
-      content: app.content,
-      width: app.width,
-      height: app.height,
-    });
+    openWindow(buildWindowConfig(app));
     onClose();
   };
 

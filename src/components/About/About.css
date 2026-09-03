@@ -10,33 +10,6 @@
   overflow: hidden;
 }
 
-.editor-tabs {
-  display: flex;
-  background: var(--os-bg-panel);
-  border-bottom: 1px solid var(--os-border);
-  flex-shrink: 0;
-}
-
-.editor-tab {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  color: var(--os-text-primary);
-  font-size: 12px;
-  border-top: 2px solid var(--os-accent);
-  border-right: 1px solid var(--os-border);
-  background: var(--os-surface-sunken);
-}
-
-.editor-tab-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--os-glow);
-  box-shadow: 0 0 4px var(--os-glow);
-}
-
 .editor-body {
   flex: 1;
   overflow-y: auto;
